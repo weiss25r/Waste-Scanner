@@ -15,10 +15,17 @@ import { Ionicons } from '@expo/vector-icons';
 import config from '../config/config';
 
 export default function App() {
+
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [predictedClass, setPredictedClass] = useState<string | null>(null);
-  const fadeAnim = useState(new Animated.Value(0))[0]; 
+
+  //state for the fade animation
+  const fadeAnim = useState(new Animated.Value(0))[0];
+  
+  //state for the ActivityIndicator
   const [loading, setLoading] = useState(false);
+    
+
   const pickImage = async () => {
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permissionResult.granted) {
@@ -33,9 +40,11 @@ export default function App() {
     });
 
     if (!result.canceled) {
+      //restores default values
       setImageUri(result.assets[0].uri);
       setPredictedClass(null);
-      fadeAnim.setValue(0); // reset animazione
+      fadeAnim.setValue(0);
+
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 500,
@@ -59,7 +68,7 @@ export default function App() {
     if (!result.canceled) {
       setImageUri(result.assets[0].uri);
       setPredictedClass(null);
-      fadeAnim.setValue(0); // reset animazione
+      fadeAnim.setValue(0);
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 500,
@@ -85,6 +94,7 @@ export default function App() {
       } as any);
     }
     
+    //shows the loading indicator
     setLoading(true);
 
     try {
@@ -103,6 +113,7 @@ export default function App() {
 
   };
 
+  //change resultBadge color for each class
   const getColorForClass = (cls: string) => {
     switch (cls) {
       case "plastic":
