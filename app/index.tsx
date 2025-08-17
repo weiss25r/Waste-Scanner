@@ -174,7 +174,7 @@ export default function App() {
           </TouchableOpacity>
         )}
 
-        {predictedClass && (
+        {!loading && predictedClass && (
           <View style={[
             styles.resultBadge,
             { backgroundColor: getColorForClass(predictedClass) }
