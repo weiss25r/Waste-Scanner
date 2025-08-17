@@ -68,40 +68,58 @@ export default function App() {
     }
   };
 
-const predictClass = async () => {
-  if (!imageUri) return;
+  const predictClass = async () => {
+    if (!imageUri) return;
 
-  const formData = new FormData();
+    const formData = new FormData();
 
-  if(Platform.OS === 'web'){
-    const response = await fetch(imageUri)
-    const blob = await response.blob();
-    formData.append("file", blob, "image.jpg")
-  } else {
-    formData.append('file', {
-      uri: imageUri,
-      name: 'image.jpg',
-      type: 'image/jpeg',
-    } as any);
-  }
-  
-  setLoading(true);
+    if(Platform.OS === 'web'){
+      const response = await fetch(imageUri)
+      const blob = await response.blob();
+      formData.append("file", blob, "image.jpg")
+    } else {
+      formData.append('file', {
+        uri: imageUri,
+        name: 'image.jpg',
+        type: 'image/jpeg',
+      } as any);
+    }
+    
+    setLoading(true);
 
-  try {
-    const response = await fetch(`${config.API_URL}/predict/`, {
-      method: 'POST',
-      body: formData, 
-    });
-    const data = await response.json();
-    setPredictedClass(data.class);
-  } catch (error) {
-    console.error(error);
-    alert('Error predicting class');
-  } finally {
-    setLoading(false);
-  }
+    try {
+      const response = await fetch(`${config.API_URL}/predict/`, {
+        method: 'POST',
+        body: formData, 
+      });
+      const data = await response.json();
+      setPredictedClass(data.class);
+    } catch (error) {
+      console.error(error);
+      alert('Error predicting class');
+    } finally {
+      setLoading(false);
+    }
 
-};
+  };
+
+  const getColorForClass = (cls: string) => {
+    switch (cls) {
+      case "plastic":
+        return "#FFD60A";
+      case "metal":
+        return "#A0A0A0";
+      case "paper":
+        return "#1D4ED8";
+      case "trash":
+        return "#8B5E3C"; 
+      case "glass":
+        return "#16A34A";
+      default:
+        return "#fab010ff"; // cardboard
+    }
+  };
+
 
   return (
     <View style={styles.container}>
@@ -111,7 +129,7 @@ const predictClass = async () => {
         {imageUri && (
           <Animated.Image
             source={{ uri: imageUri }}
-            resizeMode="cover"  // Aggiunto come prop
+            resizeMode="cover"  
             style={[styles.image, { opacity: fadeAnim }]}
           />
         )}
@@ -146,7 +164,11 @@ const predictClass = async () => {
         )}
 
         {predictedClass && (
-          <View style={styles.resultBadge}>
+          <View style={[
+            styles.resultBadge,
+            { backgroundColor: getColorForClass(predictedClass) }
+            ]}
+          >
             <Text style={styles.resultText}>{predictedClass}</Text>
           </View>
         )}
@@ -219,7 +241,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   resultBadge: {
-    backgroundColor: '#007AFF',
     paddingVertical: 6,
     paddingHorizontal: 14,
     borderRadius: 20,
