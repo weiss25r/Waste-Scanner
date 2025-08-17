@@ -1,50 +1,30 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Waste Scanner
 
-## Get started
+Waste scanner is a cross-platform app for the [Waste Classification Project](http://www.google.com). It consists in a simple front-end to let the user select an image or take a photograph of a waste, for predicting the category using a Deep Learning model that runs on a server. The app was written using React Native and Expo and thus can run on web, android and iOS. 
 
+## Execution
 1. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Copy  ```config-example.js ```, rename it as  ```config.js ``` and set your server IP in the API_URL field.
+
+3. Start the app
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. Start the API on the server as described in [Waste Classification Project](http://www.google.com).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+To run the app on mobile devices, you can use [Expo Go](https://expo.dev/go) or make a [development build](https://docs.expo.dev/develop/development-builds/introduction/).
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+The app was tested on Android and Web, using a **Raspberry Pi 4** as server for prediction.
+## Screenshots
+| <img src="./docs/screenshots/1.jpg" width="250"/> | <img src="./docs/screenshots/2.jpg" width="250"/> |
+|---------------------------------------------------|---------------------------------------------------|
+| <img src="./docs/screenshots/3.jpg" width="250"/> | <img src="./docs/screenshots/4.jpg" width="250"/> |
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
