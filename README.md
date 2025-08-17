@@ -24,7 +24,7 @@ To run the app on mobile devices, you can use [Expo Go](https://expo.dev/go) or 
 
 The app was tested on Android and Web, using a **Raspberry Pi 4** as server for prediction.
 ## Screenshots
-| <img src="./docs/screenshots/1.jpg" width="250"/> | <img src="./docs/screenshots/2.jpg" width="250"/> |
+| <img src="./docs/screenshots/1.jpg" width="500"/> | <img src="./docs/screenshots/2.jpg" width="500"/> |
 |---------------------------------------------------|---------------------------------------------------|
-| <img src="./docs/screenshots/3.jpg" width="250"/> | <img src="./docs/screenshots/4.jpg" width="250"/> |
+| <img src="./docs/screenshots/3.jpg" width="500"/> | <img src="./docs/screenshots/4.jpg" width="500"/> |
 
