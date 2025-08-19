@@ -98,7 +98,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${config.API_URL}/predict/`, {
+      const response = await fetch(`${config.API_URL}/predict`, {
         method: 'POST',
         body: formData, 
       });
