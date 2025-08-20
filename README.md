@@ -9,6 +9,7 @@
 - paper
 - cardboard
 - trash
+
 The app was written using **React Native and Expo** and thus can run on web, Android and iOS. 
 
 ## Execution
