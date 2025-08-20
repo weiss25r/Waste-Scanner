@@ -31,7 +31,7 @@ The app was written using **React Native and Expo** and thus can run on web, And
 
 To run the app on mobile devices, you can use [Expo Go](https://expo.dev/go) or make a [development build](https://docs.expo.dev/develop/development-builds/introduction/).
 
-# Tech stack
+## Tech stack
 - **Frontend:** React Native, Expo  
 - **Backend:** FastAPI  
 - **Model:** MobileNetV3 Large
