@@ -2,7 +2,7 @@
 # Waste Scanner
 
 ## Description
-**Waste Scanner** is a cross-platform app for the [Waste Classification Project](https://github.com/weiss25r/Waste-Classification.git). It consists in a simple front-end to let the user predicting the category of a waste from an image using a Deep Learning model hosted on a server.Users can either pick an image from their device or take a photo directly with the camera, and the app will predict the corresponding waste category which can be:
+**Waste Scanner** is a cross-platform app for [EcoSort](https://github.com/weiss25r/EcoSort). It consists in a simple front-end to let the user predicting the category of a waste from an image using a Deep Learning model hosted on a server.Users can either pick an image from their device or take a photo directly with the camera, and the app will predict the corresponding waste category which can be:
 - plastic
 - glass
 - metal
